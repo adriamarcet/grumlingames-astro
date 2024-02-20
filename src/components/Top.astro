@@ -1,0 +1,76 @@
+---
+
+---
+<script>
+  const frases = [
+    'Grandes juegos, pequeñas cajas',
+    '"¡Hulk aplasta aburrimiento! ¡Juegos de mesa lo salvan!"',
+    'Ganar o perder, importante no es. Divertirse, lo esencial es',
+    'Ganar divertido, ¡pero compartir más! Jar Jar dar abrazos, ¡todos felices!',
+    'Noche de juegos, ¡noche especial! Gollum contar historias, ¡todos reír!',
+    '¡Dados lanzados! ¡El Coyote gana! ¡Eureka!',
+    '¡Mip, mip! ¡Hasta la próxima!',
+    '"Aburrimiento, ¡al mar! Juegos de mesa, ¡a bordo!"'
+  ];
+
+const balloon = document.querySelector('.js-randomize') || null;
+if(balloon) {
+  balloon.addEventListener('click', () => {
+    const frase = frases[Math.floor(Math.random() * frases.length)];
+    const content = document.querySelector('.js-randomize-content') || null;
+    if(content){
+      content.textContent = frase;
+    }
+  });
+}
+</script>
+
+<div class="top">
+  <div class="balloon">
+    <p class="js-randomize-content">Grandes juegos, pequeñas cajas</p>
+    <button class="die js-randomize">🎲</button>
+  </div>
+</div>
+
+<style>
+  .top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+  }
+
+  .balloon {
+    background-color: var(--lavender-100);
+    border: 2px solid var(--lavender-400);
+    border-radius: 10px;
+    padding: 10px;
+    position: relative;
+    max-width: 300px;
+    min-width: 100px;
+    margin: 0 1rem;
+    position: relative;
+  }
+
+  .balloon::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    border: 10px solid transparent;
+    border-bottom-color: var(--lavender-100);
+    margin-left: -10px;
+  }
+  .die {
+    background: transparent;
+    border: 0;
+    left: calc(100% + 1rem);
+    position: absolute;
+    top: calc(50% - 10px);
+  }
+  .die:hover {
+    background-color: var(--lavender-100);
+    border-radius: 6px;
+    cursor: pointer;
+  }
+</style>

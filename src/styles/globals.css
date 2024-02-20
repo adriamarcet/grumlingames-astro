@@ -1,0 +1,40 @@
+:root {
+    --lavender-50: #fbf8fc;
+    --lavender-100: #f5f0f7;
+    --lavender-200: #eee3f1;
+    --lavender-300: #e0cde5;
+    --lavender-400: #cbadd3;
+    --lavender-500: #ad7fb9;
+    --lavender-600: #a171ac;
+    --lavender-700: #8a5c94;
+    --lavender-800: #734f7a;
+    --lavender-900: #5e4063;
+    --lavender-950: #3f2744;
+}
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+}
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+input, button, textarea, select {
+    font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+#root, #__next {
+    isolation: isolate;
+}
