@@ -1,24 +1,30 @@
 ---
 import { Image } from "astro:assets";
 import logo from "../assets/img/logo.png";
-
+import NavbarMenu from "./NavbarMenu.astro";
 ---
 
-<header>
-  <Image src={logo} alt="logo" width="189" height="267" />
+<NavbarMenu />
+<header class="shadow-sm shadow-slate-50">
+  <nav class="justify-between flex align-end p-4 items-end relative">
+    <div class="flex flex-auto justify-center">
+      <Image src={logo} alt="logo" width="189" height="267" class="main_logo" />
+    </div>
+    <div class="nav-mobile-actions absolute right-4 top-1/2">
+      <button class="openNavBarMenu">Menu</button>
+    </div>
+  </nav>
 </header>
 
 <style>
   header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
+    background-color: white;
   }
-  img {
+  .main_logo {
     width: 100px;
     height: auto;
     clip-path: polygon(22% 60%, 18% 55%, 18% 51%, 14% 47%, 15% 42%, 21% 38%, 24% 32%, 25% 23%, 29% 16%, 35% 10%, 37% 6%, 38% 0%, 45% 0%, 47% 6%, 47% 12%, 47% 16%, 46% 21%, 53% 19%, 55% 12%, 57% 6%, 60% 0%, 67% 0%, 70% 6%, 71% 12%, 74% 18%, 75% 26%, 76% 33%, 77% 39%, 84% 42%, 87% 48%, 81% 51%, 80% 57%, 76% 61%, 87% 60%, 95% 57%, 98% 63%, 97% 72%, 97% 78%, 93% 83%, 85% 84%, 85% 90%, 83% 96%, 78% 100%, 51% 99%, 31% 100%, 21% 99%, 17% 94%, 16% 88%, 19% 83%, 11% 83%, 5% 80%, 2% 73%, 3% 67%, 8% 60%, 15% 60%);
     background-color: white;
   }
 </style>
+
