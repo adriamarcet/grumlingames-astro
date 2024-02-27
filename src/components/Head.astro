@@ -1,17 +1,16 @@
 ---
-import { Image } from "astro:assets";
-import logo from "../assets/img/logo.png";
-import NavbarMenu from "./NavbarMenu.astro";
+import { Icon } from 'astro-icon/components';
+import NavbarMenu from "./NavbarMenu/NavbarMenu.astro";
 ---
 
 <NavbarMenu />
 <header class="shadow-sm shadow-slate-50">
   <nav class="justify-between flex align-end p-4 items-end relative">
     <div class="flex flex-auto justify-center">
-      <Image src={logo} alt="logo" width="189" height="267" class="main_logo" />
+      <Icon name="logo" width={189} height={267} class="main_logo" />
     </div>
     <div class="nav-mobile-actions absolute right-4 top-1/2">
-      <button class="openNavBarMenu">Menu</button>
+      <button class="openNavBarMenu"><span class="flex">Menu <Icon name="noto:game-die" /></span></button>
     </div>
   </nav>
 </header>

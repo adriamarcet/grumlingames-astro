@@ -1,0 +1,78 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from 'astro-icon/components';
+import Link from "../Link.astro";
+
+import navData from "../../data/gameData.js";
+import logo from "../../assets/img/logo.png";
+
+const statusOpen = true;
+---
+  <nav id="navbar-menu" class="nm absolute hidden h-dvh w-4/5 bg-slate-900 text-slate-300 divide-y divide-slate-700 z-20 transition-opacity duration-[0.2s] ease-[ease] delay-[0.2s]">
+      <div class="nm-actions flex justify-between p-4">
+          <Image src={logo} alt="logo" width="189" height="267" class="flex w-10 bg-slate-200 rounded p-1" />
+          <button class="closeNavbarMenu"><span class="flex">Tancar <Icon name="material-symbols:close" /></span></button>
+      </div>
+      <div class="nm-panel p-4 pr-0">
+        <Link text="Inici" href="/" classes="p-2 pr-8 flex" data-navlink />
+      </div>
+      <div class="nm-panel p-4 pr-0">
+          <span class="flex font-semibold">Jocs</span>
+          <ul class="list">
+            {
+              navData.map((item) => {
+                return (
+                  <li class="my-2">
+                    <Link 
+                      text={item.name} 
+                      href={item.path} 
+                      classes="p-2 pr-8 flex" 
+                      data-navlink
+                    />
+                  </li>
+                )
+              })
+            }
+          </ul>
+      </div>
+      <div class="nm-panel p-4 pr-0">
+          <span class="flex font-semibold">Idiomes</span>
+          <ul class="list">
+            <li class="my-2"><a href="#" class="p-2 pl-0 pr-8 flex">Català</a></li>
+            <li class="my-2"><a href="#" class="p-2 pl-0 pr-8 flex">Castellano</a></li>
+            <li class="my-2"><a href="#" class="p-2 pl-0 pr-8 flex">English</a></li>
+          </ul>
+      </div>
+  </nav>
+
+  {
+    statusOpen && (<div class="nm-wrapper__blocker absolute">
+      <a href="#nm-0" class="closeNavbarMenu w-full h-screen flex">
+        <span class="nm-sronly ">Close menu</span>
+      </a>
+    </div>)
+  }
+
+  <div class="nm-wrapper__blocker absolute">
+      <a href="#nm-0" class="closeNavbarMenu w-full h-screen flex">
+          <span class="nm-sronly ">Close menu</span>
+      </a>
+  </div>
+
+
+<style>
+    .nm-sronly {
+        @apply whitespace-nowrap w-px min-w-[1px] h-px min-h-[1px] overflow-hidden absolute p-0 border-0;
+        clip: rect(1px, 1px, 1px, 1px) !important;
+        -webkit-clip-path: inset(50%) !important;
+        clip-path: inset(50%) !important;
+    }
+
+    [aria-current="page"] {
+        @apply bg-slate-800 text-slate-100;
+    }
+</style>
+
+<script>
+  import "./NavbarMenu.ts";
+</script>
