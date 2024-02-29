@@ -26,30 +26,26 @@ if(balloon) {
 </script>
 
 <div class="shuffleBubble">
-  <div class="balloon">
-    <p class="js-randomize-content">Grandes juegos, pequeñas cajas</p>
+  <div class="balloon flex flex-col gap-3 justify-center">
+    <p class="content p-4 js-randomize-content">Grandes juegos, pequeñas cajas</p>
     <button class="die js-randomize">🎲</button>
   </div>
 </div>
 
 <style>
   .shuffleBubble {
-    display: flex;
-    justify-content: center;
     align-items: center;
+    background-color: var(--lavender-100);
+    display: flex;
+    flex-direction: column;
     height: 10vh;
+    justify-content: center;
   }
 
   .balloon {
-    background-color: var(--lavender-100);
-    border: 2px solid var(--lavender-400);
-    border-radius: 10px;
     padding: 10px;
-    position: relative;
     max-width: 300px;
     min-width: 100px;
-    margin: 0 1rem;
-    position: relative;
   }
 
   .balloon::before {
@@ -57,16 +53,15 @@ if(balloon) {
     position: absolute;
     bottom: 100%;
     left: 50%;
-    border: 10px solid transparent;
-    border-bottom-color: var(--lavender-100);
     margin-left: -10px;
+  }
+  .content {
+    border-radius: 10px;
+    border: 2px solid var(--lavender-400);
   }
   .die {
     background: transparent;
     border: 0;
-    left: calc(100% + 1rem);
-    position: absolute;
-    top: calc(50% - 10px);
   }
   .die:hover {
     background-color: var(--lavender-100);

@@ -19,6 +19,6 @@
   },
   "devDependencies": {
     "@iconify-json/material-symbols": "^1.1.73",
-    "@iconify-json/noto": "^1.1.18"
+    "@iconify-json/mdi": "^1.1.64"
   }
 }

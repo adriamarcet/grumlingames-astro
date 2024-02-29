@@ -7,6 +7,7 @@ openButtons.forEach((openButton) => {
     openButton.addEventListener('click', () => {
     if(menu && menu.classList.contains('hidden')) {
         menu.classList.remove('hidden');
+        menu.classList.add('is-open');
         document.body.classList.add('menu-opened');
     }
     });
@@ -16,6 +17,7 @@ closeButtons.forEach((closeButton) => {
     closeButton.addEventListener('click', () => {
     if(menu  && !menu.classList.contains('hidden')) {
         menu.classList.add('hidden');
+        menu.classList.remove('is-open');
         document.body.classList.remove('menu-opened');
     }
     });

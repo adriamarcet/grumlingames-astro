@@ -1,47 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import ShuffleBubble from "../components/ShuffleBubble.astro";
 ---
 
 <Layout title="Benvinguts/des a Grumlin Games">
-  <main>
-    <section class="billboard padding-top--xxl padding-bottom--xl">
-      <div class="u-wrapper padding-top--xxl padding-bottom--xl">
-        <div class="u-wysiwyg">
-          <h1>Benvingut a <span class="text-gradient">Grumlin Games</span></h1>
-          <h2 class="billboard__text title2 t-display">
-            Grans Jocs en Petites Caixes
-          </h2>
-
-          <ShuffleBubble />
-        </div>
-      </div>
-    </section>
-  </main>
+  <h1>Grans jocs, petites caixes</h1>
 </Layout>
-
-<style>
-  main {
-    margin: auto;
-    padding: 1rem;
-    width: 800px;
-    max-width: calc(100% - 2rem);
-    color: white;
-    font-size: 20px;
-    line-height: 1.6;
-  }
-  h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: 1;
-    text-align: center;
-    margin-bottom: 1em;
-  }
-  .text-gradient {
-    background-image: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400%;
-    background-position: 0%;
-  }
-</style>

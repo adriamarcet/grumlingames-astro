@@ -11,7 +11,7 @@ const statusOpen = true;
   <nav id="navbar-menu" class="nm absolute hidden h-dvh w-4/5 bg-slate-900 text-slate-300 divide-y divide-slate-700 z-20 transition-opacity duration-[0.2s] ease-[ease] delay-[0.2s]">
       <div class="nm-actions flex justify-between p-4">
           <Image src={logo} alt="logo" width="189" height="267" class="flex w-10 bg-slate-200 rounded p-1" />
-          <button class="closeNavbarMenu"><span class="flex">Tancar <Icon name="material-symbols:close" /></span></button>
+          <button class="closeNavbarMenu"><span class="sr-only">Close main menu </span><Icon name="material-symbols:close" width={24} height={24} /></button>
       </div>
       <div class="nm-panel p-4 pr-0">
         <Link text="Inici" href="/" classes="p-2 pr-8 flex" data-navlink />
@@ -70,6 +70,15 @@ const statusOpen = true;
 
     [aria-current="page"] {
         @apply bg-slate-800 text-slate-100;
+    }
+
+    .navbar-menu {
+      transform: translate3d(-100%,0,0);
+      transition: transform .4s ease,-webkit-transform .4s ease;
+    }
+
+    .is-open {
+      transform: translate3d(0,0,0);
     }
 </style>
 

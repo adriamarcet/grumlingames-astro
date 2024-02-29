@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display&display=swap');
+
 :root {
     --lavender-50: #fbf8fc;
     --lavender-100: #f5f0f7;
@@ -10,6 +12,8 @@
     --lavender-800: #734f7a;
     --lavender-900: #5e4063;
     --lavender-950: #3f2744;
+    --font-display: "DM Serif Display", serif;
+    --font-body:  "DM Sans", sans-serif;
 }
 /*
   Josh's Custom CSS Reset
@@ -24,6 +28,7 @@
 body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    font-family: var(--font-body);
 }
 img, picture, video, canvas, svg {
     display: block;
@@ -37,4 +42,29 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 #root, #__next {
     isolation: isolate;
+}
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+h1 {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: var(--accent-gradient);
+    background-position: 0%;
+    background-size: 800%;
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1em;
+    text-align: center;
+    font-family: var(--font-display);
 }

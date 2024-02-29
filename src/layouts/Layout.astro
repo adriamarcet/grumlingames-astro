@@ -21,7 +21,9 @@ import "../styles/globals.css";
   </head>
   <body>
     <Head />
-    <slot />
+    <main class="container mx-auto p-4 pt-12 max-w-3xl min-h-svh">
+      <slot />
+    </main>
     <Footer />
   </body>
 </html>
@@ -40,11 +42,9 @@ import "../styles/globals.css";
   }
   html {
     font-family: system-ui, sans-serif;
-    background: #13151a;
+    background: var(--lavender-100);
     background-size: 224px;
   }
-
-  main { min-height: calc(100dvh - 224px);}
 
   .menu-opened .nm-wrapper__blocker {
     @apply overflow-hidden

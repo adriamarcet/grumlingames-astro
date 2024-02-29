@@ -7,10 +7,13 @@ import NavbarMenu from "./NavbarMenu/NavbarMenu.astro";
 <header class="shadow-sm shadow-slate-50">
   <nav class="justify-between flex align-end p-4 items-end relative">
     <div class="flex flex-auto justify-center">
-      <Icon name="logo" width={189} height={267} class="main_logo" />
-    </div>
+      <a href="./">
+        <span class="sr-only">Pàgina d'inici</span>
+        <Icon name="logo" width={189} height={267} class="main_logo" />
+      </a>
+      </div>
     <div class="nav-mobile-actions absolute right-4 top-1/2">
-      <button class="openNavBarMenu"><span class="flex">Menu <Icon name="noto:game-die" /></span></button>
+      <button class="openNavBarMenu"><span class="sr-only">Open main menu </span><Icon name="mdi:hamburger-menu" width={24} height={24} /></button>
     </div>
   </nav>
 </header>
