@@ -2,20 +2,13 @@
 interface Props {
     text: string;
     href: string;
-    icon?: {
-        name: string;
-        side: "left" | "right";
-    },
     isBlank?: boolean;
     classes?: string;
 }
 
-import { Icon } from "astro-icon/components";
-
 const {
     text,
     href,
-    icon,
     isBlank = false,
     classes,
     ...rest
@@ -30,12 +23,7 @@ const {
     {...rest} 
     target={isBlank ? "_blank" : ""} 
     rel={isBlank ? 'noreferrer noopener' : ''}
->
-    {icon && icon.side === "left" && 
-        <Icon name={icon.name} />
-    }
-        {text}
-    {icon && icon.side === "right" && 
-        <Icon name={icon.name} />
-    }
+>   <slot name="before" />
+    {text}
+    <slot name="after" />
 </a>
