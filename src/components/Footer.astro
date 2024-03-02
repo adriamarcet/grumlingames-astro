@@ -1,8 +1,13 @@
 ---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 ---
 <footer class="border-t-2 border-gray-300">
     <p class="bg-slate-950 text-slate-300 p-3">
-        <small class="flex justify-center">Copyright &copy; <span id="copyright"> </span>. Tots els drets reservats.</small>
+        <small class="flex justify-center">Copyright &copy; <span id="copyright"> </span>. {t('footer.all_rights_reserved')}</small>
     </p>
 </footer>
 

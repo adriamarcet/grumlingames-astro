@@ -2,6 +2,10 @@
 import { Icon } from 'astro-icon/components';
 import NavbarMenu from "./NavbarMenu/NavbarMenu.astro";
 import navData from "../data/gameData.js";
+import { getLangFromUrl, useTranslations } from "../i18n/utils.ts";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <NavbarMenu />
@@ -9,7 +13,7 @@ import navData from "../data/gameData.js";
   <nav class="justify-between flex align-end p-4 items-end relative lg:flex-col lg:items-center lg:pt-4 lg:pb-0">
     <div class="flex flex-auto justify-center">
       <a href="./">
-        <span class="sr-only">Pàgina d'inici</span>
+        <span class="sr-only">{t('head.home_page')}</span>
         <Icon name="logo" width={189} height={267} class="main_logo" />
       </a>
     </div>
@@ -17,7 +21,7 @@ import navData from "../data/gameData.js";
       {
         navData.map((item) => (
         <li class="flex">
-          <a href={item.path} class=" hover:text-slate-700 px-4 py-2 hover:text-slate-700 hover:bg-slate-300">
+          <a href=`${item.path}` class=" hover:text-slate-700 px-4 py-2 hover:text-slate-700 hover:bg-slate-300">
             {item.name}
           </a>
         </li>
@@ -25,7 +29,8 @@ import navData from "../data/gameData.js";
       }
     </ul>
     <div class="nav-mobile-actions absolute right-4 top-1/2 lg:hidden">
-      <button class="openNavBarMenu"><span class="sr-only">Open main menu </span><Icon name="mdi:hamburger-menu" width={24} height={24} /></button>
+      <button class="openNavBarMenu">
+        <span class="sr-only">{t("navbarmenu.open")} </span><Icon name="mdi:hamburger-menu" width={24} height={24} /></button>
     </div>
   </nav>
 </header>

@@ -5,19 +5,25 @@ import Link from "../Link.astro";
 
 import navData from "../../data/gameData.js";
 import logo from "../../assets/img/logo.png";
-
+import { getLangFromUrl, useTranslations } from "../../i18n/utils.ts";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const statusOpen = true;
 ---
   <nav id="navbar-menu" class="nm absolute hidden h-dvh w-4/5 bg-slate-900 text-slate-300 divide-y divide-slate-700 z-20 transition-opacity duration-[0.2s] ease-[ease] delay-[0.2s]">
       <div class="nm-actions flex justify-between p-4">
-          <Image src={logo} alt="logo" width="189" height="267" class="flex w-10 bg-slate-200 rounded p-1" />
-          <button class="closeNavbarMenu"><span class="sr-only">Close main menu </span><Icon name="material-symbols:close" width={24} height={24} /></button>
+          <Image src={logo} alt="logo" width="189" height="267" class="flex w-10 bg-slate-200 rounded p-1" alt={t("navbarmenu.altlogo")} />
+          <button class="closeNavbarMenu">
+            <span class="sr-only">{t("navbarmenu.close")}</span>
+            <Icon name="material-symbols:close" width={24} height={24} />
+          </button>
       </div>
       <div class="nm-panel p-4 pr-0">
-        <Link text="Inici" href="/" classes="p-2 pr-8 flex" data-navlink />
+        hey
+        <Link text={t('nav.home')} href="./" classes="p-2 pr-8 flex" data-navlink />
       </div>
       <div class="nm-panel p-4 pr-0">
-          <span class="flex font-semibold">Jocs</span>
+          <span class="flex font-semibold">{t('common.games')}</span>
           <ul class="list">
             {
               navData.map((item) => {
@@ -25,7 +31,7 @@ const statusOpen = true;
                   <li class="my-2">
                     <Link 
                       text={item.name} 
-                      href={item.path} 
+                      href=`.${item.path}`
                       classes="p-2 pr-8 flex" 
                       data-navlink
                     />
@@ -36,19 +42,19 @@ const statusOpen = true;
           </ul>
       </div>
       <div class="nm-panel p-4 pr-0">
-          <span class="flex font-semibold">Idiomes</span>
+          <span class="flex font-semibold">{t('common.languages')}</span>
           <ul class="list">
-            <li class="my-2"><a href="#" class="p-2 pl-0 pr-8 flex">Català</a></li>
-            <li class="my-2"><a href="#" class="p-2 pl-0 pr-8 flex">Castellano</a></li>
-            <li class="my-2"><a href="#" class="p-2 pl-0 pr-8 flex">English</a></li>
+            <li class="my-2"><a href="../" class="p-2 pl-0 pr-8 flex">Català</a></li>
+            <li class="my-2"><a href="../es" class="p-2 pl-0 pr-8 flex">Castellano</a></li>
+            <li class="my-2"><a href="../en" class="p-2 pl-0 pr-8 flex">English</a></li>
           </ul>
       </div>
   </nav>
 
   {
     statusOpen && (<div class="nm-wrapper__blocker absolute">
-      <a href="#nm-0" class="closeNavbarMenu w-full h-screen flex">
-        <span class="nm-sronly ">Close menu</span>
+      <a href="#" role="button" class="closeNavbarMenu w-full h-screen flex">
+        <span class="nm-sronly">{t('navbarmenu.close')}</span>
       </a>
     </div>)
   }

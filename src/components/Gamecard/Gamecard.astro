@@ -1,4 +1,9 @@
 ---
+import { Image } from 'astro:assets';
+import { getLangFromUrl, useTranslations } from "../../i18n/utils.ts";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 interface Props {
     title: string;
     href: string;
@@ -6,18 +11,17 @@ interface Props {
 }
 
 const { title, href, image: img } = Astro.props as Props;
-import { Image } from 'astro:assets';
 ---
 
 <div class="gamecard mb-6">
     <a href={href}>
         <div class="gamecard-view">
-            <Image src={img} alt="Test" width={736} height={422} />
+            <Image src={img} alt="" width={736} height={422} />
         </div>
         <div class="gamecard-info flex justify-between py-3 px-2 flex items-center">
             <span class="text-2xl text-bold">{title}</span>
             <div class="border-2 rounded-2xl px-6 py-2">
-                <span>Obrir</span>
+                <span>{t('common.open')}</span>
             </div>
         </div>
     </a>

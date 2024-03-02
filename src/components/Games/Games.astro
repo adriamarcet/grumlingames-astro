@@ -2,13 +2,16 @@
 import gameData from "../../data/gameData.js";
 import Gamecard from "../../components/Gamecard/Gamecard.astro";
 
+import { getLangFromUrl } from "../../i18n/utils.ts";
+const lang = getLangFromUrl(Astro.url);
+
 ---
 <ul>
     {
         gameData.map(({name, path, image}) => {
           return (
             <li class="my-2">
-              <Gamecard title={name} href={path} image={image} />
+              <Gamecard title={name} href=`./${lang}/${path}` image={image} />
             </li>
           )
         })
