@@ -11,7 +11,7 @@ const lang = getLangFromUrl(Astro.url);
         gameData.map(({name, path, image}) => {
           return (
             <li class="my-2">
-              <Gamecard title={name} href=`./${lang}/${path}` image={image} />
+              <Gamecard title={name} href=`./${path}` image={image} />
             </li>
           )
         })
