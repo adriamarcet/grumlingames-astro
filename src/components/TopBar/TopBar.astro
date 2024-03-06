@@ -1,0 +1,18 @@
+---
+import Link from "../Link.astro";
+
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import { languages } from '../../i18n/ui';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div class="TopBar">
+    <ul class="flex flex-wrap items-center justify-center text-gray-900 dark:text-white">
+        {Object.entries(languages).map(([lang, label]) => (
+        <li>
+            <Link href={lang == 'ca'? './' : lang } text={label} classes="me-4 hover:underline md:me-6" />
+        </li>
+        ))}
+    </ul>
+</div>
