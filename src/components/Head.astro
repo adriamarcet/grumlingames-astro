@@ -1,6 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
 import NavbarMenu from "./NavbarMenu/NavbarMenu.astro";
+import TopBar from "./TopBar/TopBar.astro";
 import navData from "../data/gameData.js";
 import { getLangFromUrl, useTranslations } from "../i18n/utils.ts";
 
@@ -8,6 +9,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
+<TopBar />
 <NavbarMenu />
 <header class="border-b-2 border-solid border-gray">
   <nav class="justify-between flex align-end p-4 items-end relative lg:flex-col lg:items-center lg:pt-4 lg:pb-0">
