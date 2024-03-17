@@ -2,7 +2,11 @@ export const languages = {
     ca: 'Català',
     es: 'Castellano',
     en: 'English'
-  };
+};
+
+export function returnLanguageLabel(language: string) {
+    return languages[language as keyof typeof languages];
+}
 
 export const defaultLang = 'ca';
 

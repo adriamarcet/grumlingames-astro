@@ -1,0 +1,29 @@
+---
+import { getRelativeLocaleUrlList } from "astro:i18n";
+import Link from "./Link.astro";
+import { returnLanguageLabel } from "../i18n/ui";
+
+const localeUrls = getRelativeLocaleUrlList();
+---
+
+<nav>
+  <ul
+    class="flex flex-wrap items-center justify-center text-gray-900 dark:text-white"
+  >
+    {
+      localeUrls.map((s) => {
+        const locale = s.split("/")[1] || "ca";
+
+        return (
+          <li>
+            <Link
+              href={s}
+              classes="me-4 hover:underline md:me-6"
+              text={returnLanguageLabel(locale)}
+            />
+          </li>
+        );
+      })
+    }
+  </ul>
+</nav>
