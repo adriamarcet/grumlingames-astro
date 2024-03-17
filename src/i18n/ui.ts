@@ -10,7 +10,7 @@ export function returnLanguageLabel(language: string) {
 
 export const defaultLang = 'ca';
 
-export const ui = {
+export const strings = {
     ca: {
         'common.games': 'Jocs',
         'common.languages': 'Idiomes',
