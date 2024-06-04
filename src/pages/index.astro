@@ -1,9 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Games from "../components/Games/Games.astro";
+
+import { getLangFromUrl, useTranslations } from "../i18n/utils.ts";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <Layout language="ca" title="Benvinguts/des a Grumlin Games">
-  <h1>Grans jocs, petites caixes</h1>
+  <h1 class="text-6xl mb-20">{t("page.home.h1")}</h1>
+  <p class="text-2xl mb-10">{t("page.home.intro")}</p>
   <Games />
 </Layout>

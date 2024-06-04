@@ -7,9 +7,7 @@ const localeUrls = getRelativeLocaleUrlList();
 ---
 
 <nav>
-  <ul
-    class="flex flex-wrap items-center justify-center text-gray-900 dark:text-white"
-  >
+  <ul class="flex flex-wrap items-center justify-center">
     {
       localeUrls.map((s) => {
         const locale = s.split("/")[1] || "ca";

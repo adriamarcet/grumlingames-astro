@@ -1,9 +1,14 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Games from "../../components/Games/Games.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils.ts";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <Layout language="en" title="Welcome to Grumlin Games">
-  <h1>Big games on small boxes</h1>
+  <h1>{t("page.home.h1")}</h1>
+  <p>{t("page.home.intro")}</p>
   <Games />
 </Layout>

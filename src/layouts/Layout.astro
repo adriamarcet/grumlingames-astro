@@ -36,6 +36,20 @@ const { language, title } = Astro.props;
     <Footer />
     <style is:global>
       :root {
+        --font-display: "DM Serif Display", serif;
+        --font-body: "DM Sans Variable", sans-serif;
+
+        --accent: 136, 58, 234;
+        --accent-light: 224, 204, 250;
+        --accent-dark: 49, 10, 101;
+        --accent-gradient: linear-gradient(
+          45deg,
+          rgb(var(--accent)),
+          rgb(var(--accent-light)) 30%,
+          white 60%
+        );
+      }
+      /* :root {
         --lavender-50: #fbf8fc;
         --lavender-100: #f5f0f7;
         --lavender-200: #eee3f1;
@@ -61,7 +75,7 @@ const { language, title } = Astro.props;
         );
 
         color-scheme: light dark;
-      }
+      } */
 
       html {
         font-family: system-ui, sans-serif;
@@ -85,11 +99,6 @@ const { language, title } = Astro.props;
         background-image: var(--accent-gradient);
         background-position: 0%;
         background-size: 800%;
-        font-size: 4rem;
-        font-weight: 700;
-        line-height: 1.2;
-        margin-bottom: 1em;
-        text-align: center;
         font-family: var(--font-display);
       }
 
